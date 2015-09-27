@@ -28,4 +28,17 @@ try {
     die('Problemas de conexão à base de dados:<br/>' . $e);
 }
 
+
+//----------------------------------------------------------------------------------------------------------------------
+function make_select_from_table ($db,$table,$field_value,$field_text) {
+$sql = "SELECT $field_value,$field_text FROM $table ORDER BY $field_text";
+echo '<select>';
+foreach ($db->query($sql) as $row) {
+	echo '<option value="'.$row[$field_value].'">'.$row[$field_text].'</option>';
+}
+echo '</select>';
+return;
+}
+//----------------------------------------------------------------------------------------------------------------------
+
 ?>

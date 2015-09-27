@@ -1,6 +1,6 @@
 $(document).ready(function($) {
 
-$('#museumoz_ifr').attr('src','http://museumoz.org/php/mhn_db.php?mhn_obj_pt_record=1');
+$('#museumoz_ifr').attr('src','mhn_db.php?mhn_obj_pt_record=1');
 
 
 $('#museumoz_menu li span').click(function() {
@@ -16,16 +16,19 @@ $('#museumoz_menu li span').click(function() {
 
 	switch (ind) {
 		case 0:
-			ifr.attr('src','http://museumoz.org/php/mhn_db.php?mhn_obj_pt_record=1');
+			ifr.attr('src','mhn_db.php?mhn_obj_pt_record=1');
 		break;
 		case 1:
-			ifr.attr('src','http://museumoz.org/php/mhn_pesquisa.php');
+			ifr.attr('src','mhn_pesquisa.php');
 		break;
 		case 2:
-			ifr.attr('src','http://museumoz.org//maintenance.jpg');
+			ifr.attr('src','nova_ficha_minima.php');
 		break;
 		case 3:
-			ifr.attr('src','http://museumoz.org//maintenance.jpg');
+			ifr.attr('src','../maintenance.jpg');
+		break;
+		case 4:
+			ifr.attr('src','../maintenance.jpg');
 		break;
 		default:
 			return;
