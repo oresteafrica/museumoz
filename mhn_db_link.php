@@ -40,5 +40,40 @@ echo '</select>';
 return;
 }
 //----------------------------------------------------------------------------------------------------------------------
+function make_select_from_table_material ($db) {
+echo '<select>';
+echo '<optgroup label="Material de origem animal">';
+$sql = "SELECT id,nome FROM mat_ani_pt ORDER BY nome";
+$tabquery = $db->query($sql);
+$tabquery->setFetchMode(PDO::FETCH_ASSOC);
+foreach ($tabquery as $tabres) {
+$mat_ani_id = 1000 + $tabres['id'];
+echo '<option value="'.$mat_ani_id.'">'.$tabres['nome'].'</option>';
+}
+echo '</optgroup>';
+
+echo '<optgroup label="Material de origem vegetal">';
+$sql = "SELECT id,nome FROM mat_veg_pt ORDER BY nome" ;
+$tabquery = $db->query($sql);
+$tabquery->setFetchMode(PDO::FETCH_ASSOC);
+foreach ($tabquery as $tabres) {
+$mat_veg_id = 2000 + $tabres['id'];
+echo '<option value="'.$mat_veg_id.'">'.$tabres['nome'].'</option>';
+}
+echo '</optgroup>';
+
+echo '<optgroup label="Material de origem mineral">';
+$sql = "SELECT id,nome FROM mat_min_pt ORDER BY nome" ;
+$tabquery = $db->query($sql);
+$tabquery->setFetchMode(PDO::FETCH_ASSOC);    
+foreach ($tabquery as $tabres) {
+$mat_min_id = 3000 + $tabres['id'];
+echo '<option value="'.$mat_min_id.'">'.$tabres['nome'].'</option>';
+}
+echo '</optgroup>';
+echo '</select>';
+return;
+}
+//----------------------------------------------------------------------------------------------------------------------
 
 ?>
