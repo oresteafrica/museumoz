@@ -75,7 +75,7 @@ color:#000000;
 <td class="mhn_records_value"><input type="text" /></tr>
 <tr>
 <td class="mhn_records_key">Data de aquisição</td>
-<td class="mhn_records_value"></tr>
+<td class="mhn_records_value">Insert jquery ui calendar</tr>
 <tr>
 <td class="mhn_records_key">Forma e função</td>
 <td class="mhn_records_value"><?php make_select_from_table($db,'form_fun_pt','id','nome') ?></tr>
@@ -93,7 +93,7 @@ color:#000000;
 <td class="mhn_records_value"><?php make_select_from_table($db,'nome_geral_objecto','id','nome') ?></tr>
 <tr>
 <td class="mhn_records_key">Material</td>
-<td class="mhn_records_value"></tr>
+<td class="mhn_records_value">Special select, prepare routine</tr>
 <tr>
 <td class="mhn_records_key"></td>
 <td class="mhn_records_value"></tr>
