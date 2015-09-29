@@ -94,3 +94,24 @@
   border-radius: 5px;
   border: 1px solid black;
 }
+#museumoz_login {
+font-size:x-small;
+}
+#museumoz_login input {
+width:90%;
+margin-left:auto;
+margin-right:auto;
+margin-top:6px;
+}
+#museumoz_login button {
+width:90%;
+margin-left:auto;
+margin-right:auto;
+margin-top:6px;
+}
+#museumoz_login img {
+width:90%;
+margin-left:auto;
+margin-right:auto;
+margin-top:6px;
+}

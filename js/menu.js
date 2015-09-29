@@ -1,8 +1,15 @@
 $(document).ready(function($) {
 
+//----------------------------------------------------------------------------------------------------------------------
 $('#museumoz_ifr').attr('src','mhn_db.php?mhn_obj_pt_record=1');
-
-
+$('#museumoz_login').dialog({
+	autoOpen: false,
+	modal: true,
+	title: 'Administração',
+	resizable: false,
+	close: function( ev, ui ) { $('#museumoz_menu li span').eq(0).click(); }
+});
+//----------------------------------------------------------------------------------------------------------------------
 $('#museumoz_menu li span').click(function() {
 	var par = $(this).parents();
 	var gra = $(this).parents().parents();
@@ -28,13 +35,30 @@ $('#museumoz_menu li span').click(function() {
 			ifr.attr('src','../maintenance.jpg');
 		break;
 		case 4:
-			ifr.attr('src','../maintenance.jpg');
+			$('#museumoz_login img').attr('src','png_code.php?'+ (Math.random() * (90) + 10) );
+			$('#museumoz_login').dialog('open');
 		break;
 		default:
 			return;
 	}
-
-
 });
+//----------------------------------------------------------------------------------------------------------------------
+function ajax_call() {
+$.ajax({
+url: '',
+type: 'GET',
+dataType: 'html',
+beforeSend: function(a){  },
+success: function(a){
+
+},
+error: function(a,b,c){ alert( 'a = ' + a + '\nb = ' + b + '\nc = ' + c ) },
+complete: function(a,b){  }
+});
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
 
 }); // $
