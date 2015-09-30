@@ -64,6 +64,7 @@ body {
 	float:left;
 	border:solid red 2px;
 	padding: 4px 4px 4px 4px;
+	display: none;
 }
 </style>
 </head>
@@ -124,15 +125,15 @@ body {
 </tr>
 <tr>
 <td class="mhn_records_key">Dimensão x mm</td>
-<td class="mhn_records_value"><input type="number" max="99999" /></td>
+<td class="mhn_records_value"><input type="number" min="0" max="99999" value="0" /></td>
 </tr>
 <tr>
 <td class="mhn_records_key">Dimensão y mm</td>
-<td class="mhn_records_value"><input type="number" max="99999" /></td>
+<td class="mhn_records_value"><input type="number" min="0" max="99999" value="0" /></td>
 </tr>
 <tr>
 <td class="mhn_records_key">Dimensão z mm</td>
-<td class="mhn_records_value"><input type="number" max="99999" /></td>
+<td class="mhn_records_value"><input type="number" min="0" max="99999" value="0" /></td>
 </tr>
 <tr>
 <td class="mhn_records_key">Descrição</td>

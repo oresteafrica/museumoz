@@ -11,11 +11,10 @@ $('#mhn_records_bu_vai').click(function() {
 });
 //--------------------------------------------------------------------------------------------------
 $('.mhn_thumb').click(function() {
-	$('#mhn_ima_big_wait').show();
 	var mhn_var_thu_id = this.id;
 	var mhn_int_img_obj = new Image();
 	var mhn_int_img_src = mhn_var_imgdir + mhn_var_thu_id.substr(10, 8) + '.jpg';
-
+	$('#mhn_ima_big_wait').show();
 	$(mhn_int_img_obj)
 	.load(function() {
 		var mhn_int_img_w = this.width + 50;
@@ -31,7 +30,8 @@ $('.mhn_thumb').click(function() {
 		$('#mhn_ima_big_wait').hide();
 	})
 	.error(function() {
-		alert('Não consegue carregar a imagem, prova mais tarde.');
+		$('#mhn_ima_big_wait').hide();
+		alert('Não consegue carregar a imagem. É possível que a imagem seja apagada. Tente mais tarde para acertar.');
 		})
 	.attr('src', mhn_int_img_src );
 });

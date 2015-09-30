@@ -7,10 +7,11 @@ $white = imagecolorallocate($im, 255, 255, 255);
 $grey = imagecolorallocate($im, 128, 128, 128);
 $black = imagecolorallocate($im, 0, 0, 0);
 imagefilledrectangle($im, 0, 0, $w, $h, $white);
-$num01 = rand(10,50);
+$num01 = rand(10,49);
 $num02 = rand(10,50);
+$noise = getRandomWord();
 $num03 = $num01 + $num02;
-$text = $num01 . ' + ' . $num02;
+$text = $num01 . ' + ' . $num02 . ' (' . $noise . ')'; ;
 $font = 'fonts/arial.ttf';
 imagettftext($im, 20, 0, 10, 20, $black, $font, $text);
 imagettftext($im, 10, 0, 10, 40, $black, $font, 'escreve o resultado númerico em baixo (números não palavras)');
@@ -27,6 +28,12 @@ function imagefillroundedrect($im,$x,$y,$cx,$cy,$rad,$col) {
     imagefilledellipse($im, $x+$rad, $cy-$rad, $rad*2, $dia, $col);
     imagefilledellipse($im, $cx-$rad, $cy-$rad, $rad*2, $dia, $col);
     imagefilledellipse($im, $cx-$rad, $y+$rad, $rad*2, $dia, $col);
+}
+//----------------------------------------------------------------------------------------------------------------------
+function getRandomWord($len = 10) {
+    $word = array_merge(range('a', 'z'), range('A', 'Z'));
+    shuffle($word);
+    return substr(implode($word), 0, $len);
 }
 //----------------------------------------------------------------------------------------------------------------------
 /*
