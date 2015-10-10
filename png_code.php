@@ -1,51 +1,46 @@
 <?php
-header('Content-Type: image/png');
 $w = 400;
-$h = 40;
+$h = 48;
+$n = 16;
+$o = ['+','-'];
+$p = rand(0,1);
+$op = $o[$p];
+$temp1 = rand(10,49);
+$temp2 = rand(10,50);
+if ($temp1 >= $temp2) {
+$num01 = $temp1;
+$num02 = $temp2;
+} else {
+$num01 = $temp2;
+$num02 = $temp1;
+}
+switch ($op) {
+    case '+':
+        $num03 = $num01 + $num02;
+        break;
+    case '-':
+        $num03 = $num01 - $num02;
+        break;
+    default:
+        $num03 = $num01 + $num02;
+}
+$alfab = array_merge(range('a', 'z'), range('A', 'Z'));
+shuffle($alfab);
+$noise = substr(implode($alfab), 0, $n);
+$text = "$num01 $op $num02 ( $noise )";
+header('Content-Type: image/png');
 $im = imagecreatetruecolor($w, $h);
 $white = imagecolorallocate($im, 255, 255, 255);
 $grey = imagecolorallocate($im, 128, 128, 128);
 $black = imagecolorallocate($im, 0, 0, 0);
 imagefilledrectangle($im, 0, 0, $w, $h, $white);
-$num01 = rand(10,49);
-$num02 = rand(10,50);
-$noise = getRandomWord();
-$num03 = $num01 + $num02;
-$text = $num01 . ' + ' . $num02 . ' (' . $noise . ')'; ;
 $font = 'fonts/arial.ttf';
-imagettftext($im, 20, 0, 10, 20, $black, $font, $text);
-imagettftext($im, 10, 0, 10, 40, $black, $font, 'escreve o resultado númerico em baixo (números não palavras)');
+imagettftext($im, 20, 0, 10, 26, $black, $font, $text);
+imagettftext($im, 10, 0, 10, 44, $black, $font, 'escreve o resultado númerico em baixo (números não palavras)');
+//imagettftext($im, 10, 0, 10, 40, $black, $font, 'escreve o resultado númerico em baixo ('.$num03.')');
 imagepng($im);
 imagedestroy($im);
-//----------------------------------------------------------------------------------------------------------------------
-function imagefillroundedrect($im,$x,$y,$cx,$cy,$rad,$col) {
-// Draw the middle cross shape of the rectangle
-    imagefilledrectangle($im,$x,$y+$rad,$cx,$cy-$rad,$col);
-    imagefilledrectangle($im,$x+$rad,$y,$cx-$rad,$cy,$col);
-    $dia = $rad*2;
-// Now fill in the rounded corners
-    imagefilledellipse($im, $x+$rad, $y+$rad, $rad*2, $dia, $col);
-    imagefilledellipse($im, $x+$rad, $cy-$rad, $rad*2, $dia, $col);
-    imagefilledellipse($im, $cx-$rad, $cy-$rad, $rad*2, $dia, $col);
-    imagefilledellipse($im, $cx-$rad, $y+$rad, $rad*2, $dia, $col);
-}
-//----------------------------------------------------------------------------------------------------------------------
-function getRandomWord($len = 10) {
-    $word = array_merge(range('a', 'z'), range('A', 'Z'));
-    shuffle($word);
-    return substr(implode($word), 0, $len);
-}
-//----------------------------------------------------------------------------------------------------------------------
-/*
-header("Content-Type: image/png");
-$im = @imagecreate(200, 40)
-    or die("Cannot Initialize new GD image stream");
-$background_color = imagecolorallocate($im, 255, 255, 255);
-$text_color = imagecolorallocate($im, 0, 0, 0);
-imagestring($im, 3, 5, 5,  "50 + 34", $text_color);
-imagestring($im, 1, 5, 20,  "escreve o resultado em baixo", $text_color);
-imagepng($im);
-imagedestroy($im);
-
-*/
+session_start();
+$_SESSION['res'] = $num03;
+$_SESSION['vai'] = false;
 ?>

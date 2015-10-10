@@ -97,10 +97,14 @@
 #museumoz_login {
 font-size:x-small;
 }
+#museumoz_login label {
+width:20%;
+float:left;
+margin-top:6px;
+}
 #museumoz_login input {
-width:90%;
-margin-left:auto;
-margin-right:auto;
+width:70%;
+float:left;
 margin-top:6px;
 }
 #museumoz_login button {
