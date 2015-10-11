@@ -23,6 +23,7 @@ echo 'var topdir_html = \'' . $topdir_html . '\';';
 	<li><span>Imagens</span></li>
 	<li><span>Suporte</span></li>
 	<li><span>Pessoas</span></li>
+	<li><span>Modifica</span></li>
 	<li><span>Login</span></li>
 </ul>
 </div>

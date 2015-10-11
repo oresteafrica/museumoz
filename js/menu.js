@@ -39,6 +39,9 @@ $('#museumoz_menu li span').click(function() {
 			ifr.attr('src','check_session.php?opt=pessoas');
 		break;
 		case 6:
+			ifr.attr('src','check_session.php?opt=modifica');
+		break;
+		case 7:
 			$('#museumoz_login img').attr('src','png_code.php?'+ (Math.random() * (90) + 10) );
 			$('#museumoz_login input').eq(0).val('');
 			$('#museumoz_login input').eq(1).val('');

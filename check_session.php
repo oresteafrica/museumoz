@@ -22,7 +22,24 @@ if ($opt == 'login') {
 	} else {echo '<p style="color:red;font-weight:bold;">Nome ou senha não correta</p>'; exit;}
 }
 if ($_SESSION['vai']) {
-
+switch ($opt) {
+	case 'nova':
+		include 'nova_ficha_minima.php';
+		break;
+	case 'imagens':
+		echo '<img alt="emcurso" src="../maintenance.jpg" />';
+		break;
+	case 'suporte':
+		echo '<img alt="emcurso" src="../maintenance.jpg" />';
+		break;
+	case 'pessoas':
+		echo '<img alt="emcurso" src="../maintenance.jpg" />';
+		break;
+	case 'modifica':
+		echo '<img alt="emcurso" src="../maintenance.jpg" />';
+		break;
+     default:
+}
 } else { echo '<p style="color:red;font-weight:bold;">Esta opção é disponível apenas para administradores</p>'; exit;}
 //----------------------------------------------------------------------------------------------------------------------
 function check_get ($var) {

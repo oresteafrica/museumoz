@@ -1,4 +1,6 @@
 <?php
+session_start();
+if (! $_SESSION['vai']) {echo '<p style="color:red;font-weight:bold;">Esta op&ccedil;&atilde;o &eacute; dispon&iacute;vel apenas para administradores</p>'; exit;}
 require 'mhn_db_link.php';
 ?>
 
